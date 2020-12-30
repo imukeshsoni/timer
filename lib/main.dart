@@ -29,8 +29,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   Timer _timer;
+  int _counter = 10;
   void _startTimer() {
-    int _counter = 10;
     const oneSec = Duration(seconds: 1);
     _timer = new Timer.periodic(oneSec, (Timer timer) {
         setState(() {
@@ -44,7 +44,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _stopTimer(){
     _timer.cancel();
-
   }
   @override
   void dispose() {
@@ -70,7 +69,11 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             RaisedButton(
-              onPressed: () => _startTimer(),
+              onPressed: () {
+                if(_timer != null) _timer.cancel();
+                _counter = 10;
+                _startTimer();
+                },
               elevation: 100,
               child: const Text("Start timer"),
             ),

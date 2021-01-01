@@ -5,12 +5,17 @@ class ListLaps extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 500,
-      width: 300,
       color: Colors.red,
-      child: Column(
-        children: [
-
-        ],
+      child: Expanded(
+        child: Row(
+          children: [
+            Column(
+              children: [
+                Card()
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
